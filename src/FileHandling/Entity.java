@@ -48,6 +48,11 @@ public class Entity {
 	public void setCity(String city) {
 		this.city = city;
 	}
+	@Override
+	public String toString() {
+		return "Entity [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phoneNumber="
+				+ phoneNumber + ", city=" + city + "]";
+	}
 	
 	
 
