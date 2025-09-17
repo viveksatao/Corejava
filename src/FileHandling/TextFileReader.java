@@ -6,7 +6,7 @@ public class TextFileReader
 {
 public static void main(String[] args) 
 {
-	String filePath = "C:\\Users\\Vozon\\Desktop\\FileHandling\\vivek.txt";
+	String filePath = "C:\\Users\\Vozon\\Desktop\\FileHandling";
 	
 	try
 	{

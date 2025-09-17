@@ -8,28 +8,90 @@ static Scanner Sc = new Scanner(System.in);
 public static void main(String[] args) 
 	{
 	System.out.println("Welcome to Student Portal...");
-	System.out.println("Enter the Number of Student whose info you have to store in a file");
-	int studentCount = Sc.nextInt();
-	Sc.nextLine();
-	int count = 1;
-	while(count<=studentCount)
+	System.out.println("Enter 1 to create or write into existing file....");
+	System.out.println("Enter 2 to read existing file....");
+	int a = Sc.nextInt();
+	if(a<1 || a>2)
 	{
-		Demo tobj = new Demo();
-		Entity eobj = tobj.getEntityObjectFromUser();
-		try
-		{
-			String msg = tobj.updateFile(eobj);
-			System.out.println(msg);
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		++count;
-		
+		System.err.println("Enter valid entry...");
+		return;
 	}
-	System.out.println("Total Student Added in file :"+(count-1));
-	Sc.close();
+	else
+	{
+		switch(a)
+		{
+		case 1:
+			System.out.println("Enter the Number of Student whose info you have to store in a file");
+			int studentCount = Sc.nextInt();
+			Sc.nextLine();
+			int count = 1;
+			while(count<=studentCount)
+			{
+				Demo tobj = new Demo();
+				Entity eobj = tobj.getEntityObjectFromUser();
+				try
+				{
+					String msg = tobj.updateFile(eobj);
+					System.out.println(msg);
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+				count++;
+				
+			}
+			System.out.println("Total Student Added in file :"+(count-1));
+			break;
+			
+		case 2:
+			String filePath = "C:\\Users\\Vozon\\Desktop\\FileHandling";
+			Sc.nextLine();
+			System.out.println("Enter a filename which you have to read...");
+			String filename = Sc.nextLine()+".txt";
+			ArrayList<Entity> list1 = new ArrayList<>();
+			try
+			{
+				BufferedReader reader = new BufferedReader(new FileReader(filePath +"\\"+ filename));
+				String line;
+				
+				while((line = reader.readLine())!=null)
+				{
+					String[] splitted = line.split(":");
+					
+					if(splitted.length==5) {
+						Entity e = new Entity();
+						e.setId(Integer.parseInt(splitted[0].trim()));
+						e.setFirstName(splitted[1].trim());
+						e.setLastName(splitted[2].trim());
+						e.setPhoneNumber(Long.parseLong(splitted[3].trim()));
+						e.setCity(splitted[4].trim());
+						list1.add(e);
+					}
+					
+					
+				}
+				
+				reader.close();
+			}
+			catch(Exception e)
+			{
+				System.out.println("File not Exists");
+				return;
+			}
+			
+			System.out.println("Total Students read :"+list1.size());
+			for(Entity e : list1)
+			{
+				System.out.println(e);
+			}
+			break;
+		}
+		
+		Sc.close();
+	}
+	
+	
 
 //		System.out.println("Enter the number of student whose info you have to store:");
 //		int studentcount = Sc.nextInt();
