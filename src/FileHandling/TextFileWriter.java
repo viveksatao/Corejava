@@ -43,12 +43,7 @@ public class TextFileWriter {
 			
 			//Write into File ->
 			//true is for append mode activation
-			FileWriter writer = new FileWriter(fobj,true);
-			writer.write(userName+System.lineSeparator());
-			writer.close();
-			FileReader reader = new FileReader(fobj);
-			String ans = reader.getEncoding();
-			System.out.println(ans);
+			
 			
 		}
 		catch(Exception e)
