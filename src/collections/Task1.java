@@ -49,7 +49,7 @@ public class Task1 {
 		System.out.println("After iterating over List");
 		for(String s : list)
 		{
-			System.out.print(s+" ");
+			System.out.println(s);
 		}
       
 //		10. Write a program to clear all elements from an ArrayList and check if it is empty.
