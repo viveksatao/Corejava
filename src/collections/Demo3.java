@@ -10,7 +10,7 @@ public class Demo3 {
 		
 		//Index based Searching is Fast
 		//Adding Elements is Fast
-		//Adding Element in Between Existing elements is slow opertion
+		//Adding Element in Between Existing elements is slow operation
         // Deletion Operation is slow or costly
 		
 		list.add(11);
@@ -25,6 +25,13 @@ public class Demo3 {
 		}
 		
 		System.out.println(list.indexOf(31));
+		
+		//if we have array of fixed size and we have to add more elements in it so we can convert the existing array into arraylist are as follows 
+		
+		Integer [] arr = {101,121,131,141,151};
+		List<Integer> list1 = new ArrayList<>(Arrays.asList(arr));
+		list1.add(1);
+		System.out.println(list1);
 		
 		
 	}
